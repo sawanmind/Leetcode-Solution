@@ -11,7 +11,7 @@ class Solution {
         while i < strs.count {
             while !strs[i].hasPrefix(prefix) {
                 prefix.removeLast()
-                if prefix == "" {return ""}
+                // if prefix == "" {return ""}
             }
             
             i += 1
