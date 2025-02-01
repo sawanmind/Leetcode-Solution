@@ -21,11 +21,6 @@ class Solution {
     }
 
      func optimised(_ s: String) -> String {
-        var s = s.components(separatedBy: .whitespacesAndNewlines)
-        s.removeAll(where: {$0 == ""})
-
-        s = s.reversed()
-
-        return s.joined(separator: " ")
+        return s.split(separator: " ").reversed().joined(separator: " ")
     }
 }
