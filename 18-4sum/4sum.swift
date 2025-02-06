@@ -1,6 +1,6 @@
 class Solution {
     func fourSum(_ nums: [Int], _ target: Int) -> [[Int]] {
-        if nums.count < 4 {return [] }
+        // if nums.count < 4 {return [] }
         var nums = nums.sorted()
         var result = [[Int]]()
 
