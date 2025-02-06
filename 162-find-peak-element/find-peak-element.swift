@@ -1,13 +1,12 @@
 class Solution {
     func findPeakElement(_ nums: [Int]) -> Int {
-        bruteforce(nums)
+        optimised(nums)
     }
 
     func bruteforce(_ nums: [Int]) -> Int {
         let n = nums.count
 
         if n == 1 {return 0}
-       
 
         for i in 0..<nums.count {
             if i == 0 {
@@ -20,5 +19,23 @@ class Solution {
         }
 
         return -1
+    }
+
+    func optimised(_ nums: [Int]) -> Int {
+        let n = nums.count
+        var left = 0
+        var right = n - 1
+
+        while left < right {
+            let mid = left + (right - left)/2
+
+            if nums[mid] < nums[mid+1] {
+                left = mid + 1
+            }else {
+                right = mid
+            }
+        }
+        
+        return left
     }
 }
