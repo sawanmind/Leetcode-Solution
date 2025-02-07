@@ -1,6 +1,6 @@
 class Solution {
     func findPeakElement(_ nums: [Int]) -> Int {
-        bruteforce(nums)
+        binarySearch(nums)
     }
 
     func bruteforce(_ nums: [Int]) -> Int {
@@ -20,4 +20,21 @@ class Solution {
 
         return -1
     }
+
+     func binarySearch(_ nums: [Int]) -> Int {
+        var l = 0 // left
+        var r = nums.count - 1 // right
+
+        while l < r {
+            let m = l + (r - l) / 2 // mid
+
+            if nums[m] < nums[m+1] {
+                l = m + 1
+            }else {
+                r = m
+            }
+        }
+
+        return l
+     }
 }
