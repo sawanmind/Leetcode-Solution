@@ -15,7 +15,7 @@ class Solution {
                     r = m - 1
                 }
             }else {
-                if nums[l] <= target && nums[m] > target {
+                if target >= nums[l] && target < nums[m]  {
                     r = m - 1
                 }else {
                     l = m + 1
