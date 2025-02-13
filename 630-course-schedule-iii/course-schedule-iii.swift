@@ -15,7 +15,8 @@ class Solution {
                 heap.insert(duration)
                 totalTime += duration
             }else if let max = heap.max, max > duration {
-                totalTime = totalTime - max + duration
+                totalTime -= max
+                totalTime += duration
                 heap.popMax()
                 heap.insert(duration)
             }
