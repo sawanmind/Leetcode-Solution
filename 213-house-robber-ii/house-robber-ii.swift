@@ -10,10 +10,7 @@ class Solution {
     }
 
     func robber(_ nums: [Int]) -> Int {
-        guard !nums.isEmpty else {return 0}
-        if nums.count == 1 {return nums[0]}
-        if nums.count == 2 {return max(nums[0], nums[1])}
-
+       
         var dp = Array(repeating: 0, count: nums.count)
         dp[0] = nums[0]
         dp[1] = max(nums[0], nums[1])
