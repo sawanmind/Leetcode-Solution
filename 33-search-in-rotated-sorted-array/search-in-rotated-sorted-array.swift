@@ -9,7 +9,7 @@ class Solution {
             if nums[m] == target {
                 return m
             }else if nums[m] < nums[r] {
-                if nums[r] >= target && nums[m] < target {
+                if target <= nums[r] && target > nums[m]  {
                     l  = m + 1
                 }else {
                     r = m - 1
