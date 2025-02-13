@@ -1,20 +1,16 @@
 class Solution {
     func search(_ nums: [Int], _ target: Int) -> Int {
-        binarysearch(nums, target)
-    }
-
-    func binarysearch(_ nums: [Int], _ target: Int) -> Int {
-        var l = 0 // left
-        var r = nums.count - 1 // right
+        var l = 0
+        var r = nums.count - 1
 
         while l <= r {
-            let m = l + (r - l)/2 // mid
+            let m = l + (r - l) / 2
 
             if nums[m] == target {
                 return m
-            }else if nums[r] >= nums[m] {
+            }else if nums[m] < nums[r] {
                 if nums[r] >= target && nums[m] < target {
-                    l = m + 1
+                    l  = m + 1
                 }else {
                     r = m - 1
                 }
@@ -26,6 +22,7 @@ class Solution {
                 }
             }
         }
+
         return -1
     }
 }
