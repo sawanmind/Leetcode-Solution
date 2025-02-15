@@ -1,6 +1,27 @@
 class Solution {
     func longestConsecutive(_ nums: [Int]) -> Int {
-        bruteforce(nums)
+        optimised(nums)
+    }
+
+    func optimised(_ nums: [Int]) -> Int {
+        var set = Set(nums)
+        var len = 0
+    
+        for num in set {
+            if !set.contains(num-1) {
+                var curr = num
+                var temp = 0
+
+                while set.contains(curr) {
+                    temp += 1
+                    curr += 1
+                }
+
+                len = max(len, temp)
+            }
+        }
+
+        return len
     }
 
     func bruteforce(_ nums: [Int]) -> Int {
