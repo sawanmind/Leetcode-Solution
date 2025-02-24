@@ -1,68 +1,19 @@
 class Solution {
     func isValid(_ s: String) -> Bool {
-       bruteforce(s)
-    }
-
-    func optimised(_ s: String) -> Bool {
         var s = s
-        var map: [Character:Character] = [")": "(", "}": "{", "]": "["]
+        let count = s.count / 2
+        var index = 0
 
-        var stack = [Character]()
+        while index < count && !s.isEmpty {
 
-        for close in s {
-            if let open = map[close] {
-                if stack.isEmpty || stack.removeLast() != open {return false}
-            }else {
-                stack.append(close)
-            }
-        }
+            s = s.replacingOccurrences(of: "()", with: "")
+            s = s.replacingOccurrences(of: "{}", with: "")
+            s = s.replacingOccurrences(of: "[]", with: "")
 
-        return stack.isEmpty
-    }
 
-    func bruteforce(_ s: String) -> Bool {
-        var isChanged = true
-        var s = s
-
-        while isChanged {
-            isChanged = false
-
-            if s.contains("()") {
-                s = s.replacingOccurrences(of: "()", with: "")
-                isChanged = true
-            }
-
-            if s.contains("{}") {
-                s = s.replacingOccurrences(of: "{}", with: "")
-                isChanged = true
-            }
-
-            if s.contains("[]") {
-                s = s.replacingOccurrences(of: "[]", with: "")
-                isChanged = true
-            }
+            index += 1
         }
 
         return s.isEmpty
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
